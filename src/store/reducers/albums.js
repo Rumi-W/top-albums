@@ -8,7 +8,10 @@ const initState = {
 }
 
 const listTitles = (albums) => {
-  const list = albums.map((album) => ({ value: album['im:name'].label, label: album['im:name'].label }))
+  const list = albums.map((album) => ({
+    value: `${album['im:name'].label} --- ${album['im:artist'].label}`,
+    label: `${album['im:name'].label} --- ${album['im:artist'].label}`
+  }))
 
   list.sort((a, b) => {
     if (a.value.toLowerCase() < b.value.toLowerCase()) {

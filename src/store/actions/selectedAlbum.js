@@ -11,10 +11,15 @@ export const clearAlbumSelection = () => ({
   type: CLEAR_ALBUM_SELECTION
 })
 
-export const findAlbum = (title, albums, method) => (dispatch) => {
+export const findAlbum = (option, albums, method) => (dispatch) => {
   const noResult = {}
   let results = []
-  results = albums.filter((item) => title === item['im:name'].label)
+
+  const options = option.split('---')
+  const title = options[0].trim()
+  const artist = options[1].trim()
+
+  results = albums.filter((item) => title === item['im:name'].label && artist === item['im:artist'].label)
 
   if (results.length === 1) {
     dispatch(selectAlbum(results[0], true, method))

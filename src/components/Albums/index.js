@@ -19,9 +19,9 @@ const Albums = () => {
     dispatch(findAlbum(option, albums.items, method))
   }
 
-  const handleCardClicked = (title) => {
+  const handleCardClicked = (option) => {
     const method = 'click'
-    dispatch(findAlbum(title, albums.items, method))
+    dispatch(findAlbum(option, albums.items, method))
   }
 
   const handleClearSelection = useCallback(() => {
@@ -57,7 +57,11 @@ const Albums = () => {
                 num={i + 1}
                 album={album}
                 handleCardClicked={handleCardClicked}
-                selected={selectedAlbum.selected && album['im:name'].label === selectedAlbum.item['im:name'].label}
+                selected={
+                  selectedAlbum.selected &&
+                  album['im:name'].label === selectedAlbum.item['im:name'].label &&
+                  album['im:artist'].label === selectedAlbum.item['im:artist'].label
+                }
                 selectMethod={selectedAlbum.method}
               />
             ))}

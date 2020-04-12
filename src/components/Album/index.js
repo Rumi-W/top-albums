@@ -42,8 +42,8 @@ const Album = ({ album, num, selected, selectMethod, handleCardClicked }) => {
   }, [selected, selectMethod])
 
   const handleClick = () => {
-    const title = album['im:name'].label
-    handleCardClicked(title)
+    const option = `${album['im:name'].label} --- ${album['im:artist'].label}`
+    handleCardClicked(option)
   }
 
   return (
