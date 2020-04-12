@@ -6,7 +6,6 @@ import './App.css'
 
 class App extends PureComponent {
   render() {
-    console.log('rendering app')
     return (
       <BrowserRouter>
         <Switch>

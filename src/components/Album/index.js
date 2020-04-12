@@ -1,6 +1,7 @@
-import React from 'react'
-import Card from 'react-bootstrap/Card'
+import React, { useRef, useEffect, memo } from 'react'
+import { Card } from 'react-bootstrap'
 import styled from 'styled-components'
+import './styles.css'
 
 const StyledH4 = styled.h4`
   font-size: 1em;
@@ -13,10 +14,40 @@ const StyledSpan = styled.span`
   color: #eeeee;
 `
 
-const Album = ({ album, num }) => {
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
+
+const Album = ({ album, num, selected, selectMethod, handleCardClicked }) => {
+  const cardRef = useRef(null)
+  const cardStyle = {
+    margin: '0.5rem',
+    width: `${album['im:image'][2].attributes.height}px`,
+    height: `${album['im:image'][2].attributes.height * 1.9}px`
+  }
+  const styleGlow = {
+    border: '#89e8e3 1px solid',
+    WebkitBoxShadow: '3px 3px 20px 0px rgba(137,232,227,,1)',
+    MozBoxShadow: '3px 3px 20px 0px rgba(137,232,227,1)',
+    boxShadow: '3px 3px 20px 0px rgba(137,232,227,1)'
+  }
+
+  useEffect(() => {
+    if (selected && selectMethod === 'menu') {
+      scrollToRef(cardRef)
+    }
+  }, [selected, selectMethod])
+
+  const handleClick = () => {
+    const title = album['im:name'].label
+    handleCardClicked(title)
+  }
+
   return (
-    <Card style={{ margin: '0.5rem', width: `${album['im:image'][2].attributes.height}px` }}>
-      <Card.Img variant="top" src={album['im:image'][2].label} />
+    <Card
+      className="card-album"
+      ref={cardRef}
+      style={selected ? { ...cardStyle, ...styleGlow } : cardStyle}
+      onClick={handleClick}>
+      <Card.Img variant="top" alt="Cover Image" title="Cover Image" src={album['im:image'][2].label} />
       <Card.Body>
         <Card.Title>
           <StyledH4>{`${num}. ${album['im:name'].label}`}</StyledH4>
@@ -25,8 +56,24 @@ const Album = ({ album, num }) => {
           <StyledSpan>{album['im:artist'].label}</StyledSpan>
         </Card.Text>
       </Card.Body>
+      <Card.Body
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+          alignItems: 'flex-end',
+          fontSize: '1.4rem'
+        }}>
+        <Card.Link className="link-more" target="_blank" title="More Info" href={album.link.attributes.href}>
+          More
+        </Card.Link>
+      </Card.Body>
     </Card>
   )
 }
+const propEqual = (prevProps, nextProps) => {
+  return prevProps.selected === nextProps.selected
+}
 
-export default Album
+const MemorizedAlbum = memo(Album, propEqual)
+export default MemorizedAlbum

@@ -3,7 +3,13 @@ import { FETCH_ALBUMS_START, FETCH_ALBUMS_SUCCESS, FETCH_ALBUMS_FAILED } from '.
 const initState = {
   pending: false,
   success: false,
-  items: []
+  items: [],
+  titleList: []
+}
+
+const listTitles = (albums) => {
+  const list = albums.map((album) => ({ value: album['im:name'].label, label: album['im:name'].label }))
+  return list
 }
 
 export default (state = initState, action = {}) => {
@@ -12,10 +18,10 @@ export default (state = initState, action = {}) => {
       return { ...state, pending: true }
 
     case FETCH_ALBUMS_SUCCESS:
-      return { pending: false, success: true, items: action.albums }
+      return { pending: false, success: true, items: action.albums, titleList: listTitles(action.albums) }
 
     case FETCH_ALBUMS_FAILED:
-      return { pending: false, success: false, items: [] }
+      return initState
 
     default:
       return state

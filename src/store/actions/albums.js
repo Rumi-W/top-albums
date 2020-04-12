@@ -16,12 +16,10 @@ const fetchStarted = () => ({
 })
 
 export const fetchTop100 = () => async (dispatch) => {
-  console.log('fetching')
   dispatch(fetchStarted())
   try {
     const response = await axios.get(top100URL)
     if (response.status === 200) {
-      console.log('response', response)
       dispatch(setAlbums(response.data.feed.entry))
     }
   } catch (error) {

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import musicNoteImg from '../../assets/music-note-64-blue.png'
 import Tooltip from '../Tooltip'
@@ -8,7 +8,6 @@ const Intro = () => {
   const [showTooltip, setShowTooltip] = useState(false)
 
   const handleMouseEnter = (e) => {
-    console.log('e', e.target)
     e.stopPropagation()
     setShowTooltip(true)
   }

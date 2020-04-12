@@ -1,0 +1,15 @@
+.card-album:hover {
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -o-transform: scale(1.02);
+  transform: scale(1.02);
+}
+
+.link-more {
+  text-decoration: underline;
+}
+
+.link-more:hover {
+  text-decoration: underline;
+  color: #48c2fc;
+}
