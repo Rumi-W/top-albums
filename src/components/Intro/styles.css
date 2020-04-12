@@ -1,0 +1,239 @@
+.intro {
+  height: 100vh;
+  width: 100vw;
+  background: url('../../assets/cover.jpg') no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: none;
+}
+
+.intro:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(109, 103, 103, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  opacity: 0.9;
+  z-index: 1;
+}
+
+.intro > * {
+  z-index: 100;
+}
+
+.title-wrap {
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-title {
+  font-size: 6rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.intro-title-sm {
+  font-size: 2rem;
+  text-decoration: underline;
+  font-weight: 400;
+  color: #48c2fc;
+  outline: none;
+  position: relative;
+}
+
+.intro-title-sm:hover {
+  color: #fff;
+}
+
+img {
+  outline: none !important;
+}
+
+/* animation */
+.spin {
+  animation: spin ease 800ms;
+  -webkit-animation: spin ease 800ms;
+  -moz-animation: spin ease 800ms;
+  -o-animation: spin ease 800ms;
+  -ms-animation: spin ease 800ms;
+}
+
+@-moz-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@-o-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotate(360deg);
+    opacity: 1;
+  }
+}
+
+.color-in {
+  animation: colorIn ease 800ms;
+  -webkit-animation: colorIn ease 800ms;
+  -moz-animation: colorIn ease 800ms;
+  -o-animation: colorIn ease 800ms;
+  -ms-animation: colorIn ease 800ms;
+}
+
+@-moz-keyframes colorIn {
+  0% {
+    opacity: 0;
+    color: white;
+  }
+  50% {
+    opacity: 1;
+    color: white;
+  }
+
+  100% {
+    opacity: 1;
+    color: #48c2fc;
+  }
+}
+
+@-webkit-keyframes colorIn {
+  0% {
+    opacity: 0;
+    color: white;
+  }
+  50% {
+    opacity: 1;
+    color: white;
+  }
+
+  100% {
+    opacity: 1;
+    color: #48c2fc;
+  }
+}
+
+@-o-keyframes colorIn {
+  0% {
+    opacity: 0;
+    color: white;
+  }
+  50% {
+    opacity: 1;
+    color: white;
+  }
+
+  100% {
+    opacity: 1;
+    color: #48c2fc;
+  }
+}
+
+@-ms-keyframes colorIn {
+  0% {
+    opacity: 0;
+    color: white;
+  }
+  50% {
+    opacity: 1;
+    color: white;
+  }
+
+  100% {
+    opacity: 1;
+    color: #48c2fc;
+  }
+}
+
+@keyframes colorIn {
+  0% {
+    opacity: 0;
+    color: white;
+  }
+  50% {
+    opacity: 1;
+    color: white;
+  }
+
+  100% {
+    opacity: 1;
+    color: #48c2fc;
+  }
+}
+
+/* media queries */
+@media (max-width: 1280px) {
+  .intro {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 960px) {
+  .intro {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro {
+    background: #000000;
+    height: '600px';
+  }
+  .intro-title {
+    font-size: 3rem;
+  }
+}
