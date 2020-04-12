@@ -4,6 +4,9 @@
   -o-transform: scale(1.02);
   transform: scale(1.02);
 }
+.card-text {
+  margin-bottom: 0;
+}
 
 .link-more {
   text-decoration: underline;

@@ -13,6 +13,10 @@ const StyledSpan = styled.span`
   font-size: 1.2em;
   color: #eeeee;
 `
+const StyledSpanSm = styled.span`
+  font-size: 1em;
+  color: #eeeee;
+`
 
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)
 
@@ -23,11 +27,12 @@ const Album = ({ album, num, selected, selectMethod, handleCardClicked }) => {
     width: `${album['im:image'][2].attributes.height}px`,
     height: `${album['im:image'][2].attributes.height * 1.9}px`
   }
+
   const styleGlow = {
     border: '#89e8e3 1px solid',
-    WebkitBoxShadow: '3px 3px 20px 0px rgba(137,232,227,,1)',
-    MozBoxShadow: '3px 3px 20px 0px rgba(137,232,227,1)',
-    boxShadow: '3px 3px 20px 0px rgba(137,232,227,1)'
+    WebkitBoxShadow: '0px 2px 20px 0px rgba(72,194,252,1)',
+    MozBoxShadow: '0px 2px 20px 0px rgba(72,194,252,1)',
+    boxShadow: '0px 2px 20px 0px rgba(72,194,252,1)'
   }
 
   useEffect(() => {
@@ -64,6 +69,9 @@ const Album = ({ album, num, selected, selectMethod, handleCardClicked }) => {
           alignItems: 'flex-end',
           fontSize: '1.4rem'
         }}>
+        <Card.Text>
+          <StyledSpanSm>{album['im:price'].label}</StyledSpanSm>
+        </Card.Text>
         <Card.Link className="link-more" target="_blank" title="More Info" href={album.link.attributes.href}>
           More
         </Card.Link>

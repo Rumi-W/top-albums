@@ -21,7 +21,7 @@ const Title = () => {
     <Row>
       <Col sm={2}>
         <Link to="/">
-          <StyledH4>Home</StyledH4>
+          <StyledH4 className="fade-in">Home</StyledH4>
         </Link>
       </Col>
       <Col style={{ padding: 0 }}>
