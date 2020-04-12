@@ -7,7 +7,7 @@ import './App.css'
 class App extends PureComponent {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/top-albums/">
         <Switch>
           <Route path="/top100">
             <Wrapper />
