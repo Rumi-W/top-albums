@@ -1,14 +1,20 @@
 # top-albums app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This application displays top 100 albums from Apple iTunes RSS API.
 
-The application displays top 100 albums from Apple iTunes RSS API.
+## Application built on React/Redux
+
+React V.16.13, Redux V.4.0, React Router V.5.1, React Bootstrap V.1.0. Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+### Demo
+
+[Open Application](https://Rumi-W.github.io/top-albums/)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -16,7 +22,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm run build`
+#### `npm run build`
 
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
